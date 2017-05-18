@@ -1,0 +1,20 @@
+{
+  "name": "Athena",
+  "description": "Athena chatbot",
+  "repository": "https://github.com/rajeevrmenon97/athena",
+  "keywords": ["node", "express", "github", "wit", "bot", "fcaebook"],
+  "env": {
+    "WIT_TOKEN": {
+      "description": "Server Access Token from wit.ai",
+      "required": true
+    },
+    "FB_PAGE_TOKEN": {
+      "description": "Facebook Page Token from https://developers.facebook.com/apps/",
+      "required": true
+    },
+    "FB_VERIFY_TOKEN": {
+      "description": "Facebook verification Token.",
+      "required": false
+    }
+  }
+}
