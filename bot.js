@@ -53,17 +53,32 @@ const actions = {
   },
     merge(sessionId, context, entities, message, cb) {
     // Retrieve the entity and store it into a context field
-    const eve = firstEntityValue(entities, 'tathva_event');
-    if (eve) {
-      context.eve = eve; // store it in context
+    const quest = firstEntityValue(entities, 'quest');
+    if (quest) {
+      context.quest = quest;
+    }
+    else {
+      delete context.quest;
     }
 
+    const event = firstEntityValue(entities, 'event');
+    if (event) {
+      context.event = event;
+    }
+    else {
+      delete context.event;
+    }
     cb(context);
   },
 
   error(sessionId, context, error) {
     console.log(error.message);
   },
+
+  ['quest-action'](sessionId, context, cb) {
+    context.anstext = "Description returned";
+    cb(context);
+  }
 };
 
 
@@ -79,4 +94,3 @@ if (require.main === module) {
   const client = getWit();
   client.interactive();
 }
-
